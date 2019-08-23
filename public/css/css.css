@@ -1,0 +1,298 @@
+
+html {
+  font-family: 'Varela Round', sans-serif;
+}
+
+h1 {
+  margin-bottom: 2px;
+  font-size: 70px;
+  width:40px;
+}
+
+h1 a:link, a:visited, a:active {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 15px ;
+  margin-bottom: 30px;
+}
+
+a{
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+}
+
+a:hover{
+  color: #04693F
+}
+
+body {
+  background-color: #ffffff;  
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: auto;
+  width: auto;
+  max-width: 100vw;
+}
+
+
+.menu {
+  text-align: center;
+  margin: auto;
+  font-weight: bold;
+  position: center;
+  align-items: center;
+  position: center;
+  margin: 50px auto 50px auto;
+
+}
+
+.tela
+{
+  border: solid 2px #04693F ;
+  color: black;
+  width: 400px;
+  height: 400px;
+  margin: 50px auto 50px auto;
+  padding-top: 50px;
+  padding-left: 10px;
+  text-align: center;
+
+}
+
+.tela input
+{
+  display: block;
+  margin: 5px 20px;
+  width: 85%;
+  padding: 5px 8px;
+  border-radius: 20px;
+  color: black;
+  border: solid 2px #04693F;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.tela label
+{
+  display: block;
+  padding: 10px 10px 5px 15px;
+  font-size: 22px;
+  color: black;
+}
+
+.tela button
+{
+  display: block;
+  margin: 20px auto 150px;
+  font-family: 20px;
+  text-align: center;
+
+}
+
+.tela button a{
+  text-decoration: none;
+  font-size: 15px;
+
+}
+
+
+.tela img
+{
+  display: block;
+  margin-top: 15px;
+  margin-left: 100px;
+  border: 4px solid #F6F4ED;
+}
+
+.icone{
+  position: absolute;
+  right: 20px;
+  top: 50px;
+}
+
+
+
+.interface{
+  width: 700px
+  margin: -20px auto 0px auto;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+/*  background-color: #0B3B0B;
+*/  padding: 10px;
+}
+
+.cabecalho{
+  border-bottom: 2px #04693F solid;
+  width: auto;
+  margin: auto;
+}
+
+.cabecalho h2{
+  text-align: center;
+  font-size: 30pt;
+}
+
+nav {
+  position: center;
+  width: 350px;
+  margin: auto;
+  object-position: center;
+  text-align: center;
+
+}
+
+nav li {
+  padding: 5px;
+  margin-bottom: 5px;
+  border-top-style:solid;
+  border-bottom-style:solid;
+  border-color:#04693F;
+  text-align: justify;
+  border-radius: 100px;
+  text-decoration-color: white;
+  text-align: center;
+  transition: all 0.4s;
+}
+
+
+nav li a {
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+nav li:hover { /*passar mouse e altersr*/
+  background-color: #04693F;
+  color: #fff;
+}
+
+nav li:hover a { /*passar mouse e altersr*/
+  color: #fff;
+}
+
+
+footer {
+  clear: both;
+  text-align: center;
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+  font-size: 13px;
+  font-weight: bold;
+  border-top-style: solid;
+  border-top-width: 100%;
+  padding-top: 15px;
+  border-top-color: #04693F;
+} 
+
+.corpo {
+  width: 400px;
+  border: 2px solid #04693F;
+  padding-left: 15px;
+  margin: auto;
+}
+
+.lateral {
+  width: 500px; 
+  padding-right: 15px;
+  margin: auto;
+  border: 2px solid #04693F;
+
+}
+
+.corpo_geral{
+  text-align: center;
+  border-right: 2px solid #04693F;
+  border-left: 2px solid #04693F;
+  margin: auto;
+}
+
+/*
+.rodape{
+clear: both;
+border-top: 1px solid black;
+text-align: center;
+}
+*/
+
+nav li { /*tirar os pontos*/
+  list-style: none;
+}
+
+
+button{
+padding: 11px 21px; 
+vertical-align: middle; 
+background:#04693F; 
+border-radius:6px; 
+font-size: 10px; 
+font-family:helvetica, serif;
+text-decoration: none;
+}
+
+button a{
+  color: #fff;
+}
+
+button a:hover{
+  color: #fff;
+  font-weight: 600;
+}
+
+.botao_reserva{
+  text-align: center;
+}
+
+.botao_reserva button{
+  margin: 10px auto;
+  display: block;
+}
+
+@media only screen and (min-width: 991px){
+  .corpo {
+    display: block;
+    float: left;
+  }
+  
+  .lateral {
+    display: block;
+    float: right;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .cabecalho h2{
+    font-size: 24px;
+  }
+
+  .tela
+  {
+    width: 90%;
+    margin: 75px 5% 50px;
+    padding-top: 25px;
+    padding-left: 5px;
+    box-sizing: border-box;
+  }
+
+  .corpo, .lateral {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* 
+css para cada arquivo
+
+
+1 - geral - classes usadas em varios arquivos
+2 - menu
+3 - footer
+4... - especificos para paginas
+
+ // alguns ainda faz especifico para o mobile, ai só com regras  @media
+
+
+*/
