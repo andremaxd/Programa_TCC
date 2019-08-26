@@ -32,6 +32,15 @@
           <input type="radio" name="sexo" id="cMasc"><label for="cMasc"> Masculino</label><br>
           <input type="radio" name="sexo" id="cFem"><label for="cFem"> Feminino</label> </fieldset>
       </fieldset>
+
+      <fieldset id="">
+        <legend id="usuario">Dados bancários:</legend>
+
+        <p> <label for="cBanco">Banco: </label> <input type="text" name="banco" id="cbanco" size="20" maxlength="30" placeholder="Digite seu banco"></p>
+        <p> <label for="cAgencia">N° da Agência: </label> <input type="number" name="agencia" id="cAgencia" size="20" maxlength="30" placeholder="Digite sua agência"></p>
+        <p> <label for="cConta">N° da Conta: </label> <input type="number" name="conta" id="cConta" size="20" maxlength="30" placeholder="Digite sua conta"></p>
+        <p> <label for="cTipo_conta">Tipo da Conta: </label> <input type="text" name="tipo_conta" id="cTipo_Conta" size="20" maxlength="30" placeholder="Digite seu tipo de conta"></p>
+
       <div class="botao_reserva">
         <button><a>CADASTRAR</a></button> 
       </div>

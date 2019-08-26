@@ -29,7 +29,8 @@ Route::get('/menu_calendario', function () {
 })->name('menu_calendario');
 
 Route::get('/criar_reserva', function () {
-    return view('criar_reserva');
+    $apartamento = Apartamento::all();
+    return view('criar_reserva', compact('apartamento'));   //testa ---ok
 })->name('criar_reserva');
 
 Route::get('/menu_valores', function () {
@@ -93,7 +94,7 @@ Route::get('/valor_por_proprietario', function () {
 Route::get('/inserir_cliente', 'ClienteController@store')->name('inserir_cliente');
 
 Route::post('/cadastrar_reserva', function(Request $request){
-    $cliente = new Cliente;
+        $cliente = new Cliente;
         $cliente->nome        = $request->nome;
         $cliente->cpf = $request->cpf;
         $cliente->endereco    = $request->endereco;
@@ -126,6 +127,11 @@ Route::post('/cadastrar_prop', function(Request $request){
         $proprietario->telefone = $request->telefone;
         $proprietario->email = $request->email;
         $proprietario->sexo = $request->sexo;
+
+        $proprietario->banco = $request->banco;
+        $proprietario->agencia = $request->agencia;
+        $proprietario->conta = $request->conta;
+        $proprietario->tipo_conta = $request->tipo_conta;
         $proprietario->save();
 
         return redirect()->route('cadastrar_prop')->with('message', 'Reserva cadastrada com sucesso!');

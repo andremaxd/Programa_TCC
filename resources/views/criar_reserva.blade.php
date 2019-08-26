@@ -46,7 +46,7 @@
           <input type="radio" name="sexo" id="cFem"><label for="cFem"> Feminino</label> </fieldset>
       </fieldset>
 
-      <fieldset id="apartamento">
+      <fieldset id="apto">
         <legend>Selecionar apartamento:</legend>
 
         <p><label for="cDorm">Dormitórios:</label>
@@ -57,13 +57,24 @@
           <option value="04d">04 dormitórios</option>
         </select></p>
 
+
+        <p><label for="cDorm">Apartamento:</label>
+        <select name="dormitorios" id="cApto">
+          <option selected>Selecione</option>
+        @foreach ($apartamento as $apartamentos)
+          <option value={{$apartamentos->dormitorios}}>{{$apartamentos->residencial}}</option>
+        @endforeach
+
+        </select>
+
         <p>
-          <label for="cResid">Residencial:</label>
+          <!--<label for="cResid">Residencial:</label>
           <input type="text" name="residencial" id="cResid" maxlength="40" size="20" placeholder="Apartamento" list="predio">
           <datalist id="predio">
             <option value="Alfredo Selent"></option>
             <option value="Santo Antonio A"></option>
             <option value="Santo Antonio B"></option>
+            -->
             
             <!-- COLOCAR TODOS OS APTOS-->
           </datalist>

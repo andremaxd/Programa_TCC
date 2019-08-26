@@ -24,7 +24,7 @@
         <legend id="">Proprietário já cadastrado:</legend>
 
         <p><label for="cDorm">Proprietário:</label>
-        <select name="tApto" id="cApto">
+        <select name="id_proprietario" id="cApto">
           <option selected>Selecione</option>
         @foreach ($proprietarios as $proprietario)
           <option value={{$proprietario->id}}>{{$proprietario->nome}}</option>

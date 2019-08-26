@@ -23,6 +23,11 @@ class Proprietario extends Migration
             $table->string('telefone');
             $table->text('email');
             $table->string('sexo');
+
+            $table->text('banco');
+            $table->string('agencia');
+            $table->text('conta');
+            $table->string('tipo_conta');
         });
     }
 
