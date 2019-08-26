@@ -33,7 +33,7 @@ fieldset#sexo{
 
 fieldset#usuario{
 	position: relative;
-	background: url("img/usuario.jfif") no-repeat 95% 95%;
+	background: url("../img/usuario.jfif") no-repeat 95% 95%;
 }
 
 @media only screen and (max-width: 480px)

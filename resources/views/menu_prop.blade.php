@@ -20,8 +20,9 @@
 
       <div class ='menu'>
         <nav>
-          <li><a href="dados_pessoais.html">Ver dados pessoais</a></li>
-          <li><a href="cadastrar_prop.html">Cadastrar novo proprietário</a></li>
+          <li><a href={{route("dados_pessoais")}}>Ver dados pessoais</a></li>
+          <li><a href={{route("cadastrar_prop")}}>Cadastrar novo proprietário</a></li>
+          <li><a href={{route("cadastrar_ap")}}>Cadastrar novo apartamento</a></li>
         </nav>
       </div>
       

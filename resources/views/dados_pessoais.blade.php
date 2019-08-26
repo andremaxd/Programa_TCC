@@ -13,26 +13,17 @@
 
     <header class="cabecalho">
       <a href={{route("menu")}}><img src="img/logo.png" width="150px" height="100px"> </a>
-      <h2> 02 DORMITÓRIOS: </h2>
+      <h2> DADOS PESSOAIS: </h2>
     </header>
-    <button class="icone"><a href={{route("menu_calendario")}}> VOLTAR </a></button>
+    <button class="icone"><a href={{route("menu_prop")}}> VOLTAR </a></button>
 
     <section class="corpo">
-      <p>Res Alfredo Selent - Ap 101</p>
-      <p>Res Alfredo Selent - Ap 101</p>
-      <p>Res Alfredo Selent - Ap 101</p>
-      <p>Res Alfredo Selent - Ap 101</p>
-      <p>Res Alfredo Selent - Ap 101</p>
-      <p>Res Alfredo Selent - Ap 101</p>
-
+      <p>PROPRIETÁRIOS</p>
 
     </section>
 
     <aside class="lateral"> 
-          <p>AQUI VAI A TABELA COM O CALENDARIO</p>
-          <p>1 2 3 4 5</p>
-          <p>6 7 8 9 10</p>
-
+          <p>AQUI VAI OS DADOS</p>
       </aside>
       
     <footer class="rodape">

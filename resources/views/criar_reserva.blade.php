@@ -50,7 +50,7 @@
         <legend>Selecionar apartamento:</legend>
 
         <p><label for="cDorm">Dormitórios:</label>
-        <select name="tApto" id="cApto">
+        <select name="dormitorios" id="cApto">
           <option selected>Selecione</option>
           <option value="02d">02 dormitórios</option>
           <option value="03d">03 dormitórios</option>
@@ -59,27 +59,29 @@
 
         <p>
           <label for="cResid">Residencial:</label>
-          <input type="text" name="tResid" id="cResid" maxlength="40" size="20" placeholder="Apartamento" list="predio">
+          <input type="text" name="residencial" id="cResid" maxlength="40" size="20" placeholder="Apartamento" list="predio">
           <datalist id="predio">
             <option value="Alfredo Selent"></option>
-            <option value="Santo Antonio"></option>
+            <option value="Santo Antonio A"></option>
+            <option value="Santo Antonio B"></option>
+            
             <!-- COLOCAR TODOS OS APTOS-->
           </datalist>
         </p>
 
-        <p><label for="cNAp">Apto:</label> <input type="number" name="tNAp" id="cNAp" min="0" max="9999"></p>
+        <p><label for="cNAp">Apto:</label> <input type="number" name="ap" id="cNAp" min="0" max="9999"></p>
 
       </fieldset>
 
       <fieldset>
         <legend class="apartamento">Valores:</legend>
         
-        <p>Dia de Entrada:<input type="date" name="tEntrada" id="cEntrada"> </p>
-        <p>Dia de Saída:<input type="date" name="tSaida" id="cSaida" onchange="calculaDias()"> </p>
+        <p>Dia de Entrada:<input type="date" name="entrada" id="cEntrada"> </p>
+        <p>Dia de Saída:<input type="date" name="saida" id="cSaida" onchange="calculaDias()"> </p>
 
-        <p><label for="cDiar">Diárias:</label> <input type="number" name="tDiar" id="cDiar" readonly></p>
-        <p><label for="cValorDiar">Valor da diária:</label> <input type="text" name="tValorDiar" id="cValorDiar" maxlength="40" size="20" placeholder="R$"></p>
-        <p><label for="cValorLim">Valor da limpeza:</label> <input type="text" name="tValorLim" id="cValorLim" maxlength="40" size="20" placeholder="R$"></p>
+        <p><label for="cDiar">Diárias:</label> <input type="number" name="diarias" id="cDiar" readonly></p>
+        <p><label for="cValorDiar">Valor da diária:</label> <input type="text" name="valor_diaria" id="cValorDiar" maxlength="40" size="20" placeholder="R$"></p>
+        <p><label for="cValorLim">Valor da limpeza:</label> <input type="text" name="valor_limpeza" id="cValorLim" maxlength="40" size="20" placeholder="R$"></p>
 
         
       </fieldset>

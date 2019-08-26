@@ -1,6 +1,9 @@
 <?php
     use Illuminate\Http\Request;
     use App\Cliente;
+    use App\Reserva;
+    use App\Proprietarios;
+    use App\Apartamento;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,8 +40,22 @@ Route::get('/menu_proprietarios', function () {
     return view('menu_prop');
 })->name('menu_prop');
 
+Route::get('/cadastrar_proprietario', function () {
+    return view('cadastrar_prop');
+})->name('cadastrar_prop');
+
+Route::get('/cadastrar_apartamento', function () {
+    $proprietarios = Proprietarios::all();
+    return view('cadastrar_ap', compact('proprietarios'));
+})->name('cadastrar_ap');
+
+Route::get('/dados_pessoais', function () {
+    return view('dados_pessoais');
+})->name('dados_pessoais');
+
 Route::get('/02_dormitorios', function () {
-    return view('02_dorm');
+    $reservas = Reserva::all();
+    return view('02_dorm', compact('reservas'));
 })->name('02_dorm');
 
 Route::get('/03_dormitorios', function () {
@@ -76,7 +93,6 @@ Route::get('/valor_por_proprietario', function () {
 Route::get('/inserir_cliente', 'ClienteController@store')->name('inserir_cliente');
 
 Route::post('/cadastrar_reserva', function(Request $request){
-    dd($request);
     $cliente = new Cliente;
         $cliente->nome        = $request->nome;
         $cliente->cpf = $request->cpf;
@@ -86,6 +102,8 @@ Route::post('/cadastrar_reserva', function(Request $request){
         $cliente->sexo       = $request->sexo;
         $cliente->save();
 
+        $reserva = new Reserva;
+        $reserva->cliente_id = $cliente->id;
         $reserva->dormitorios = $request->dormitorios;
         $reserva->residencial = $request->residencial;
         $reserva->ap = $request->ap;
@@ -96,7 +114,32 @@ Route::post('/cadastrar_reserva', function(Request $request){
         $reserva->valor_limpeza = $request->valor_limpeza;
         $reserva->save();
 
-
         return redirect()->route('criar_reserva')->with('message', 'Reserva cadastrada com sucesso!');
 })->name('cadastrar_reserva');
+
+
+Route::post('/cadastrar_prop', function(Request $request){
+        $proprietario= new Proprietarios;
+        $proprietario->nome = $request->nome;
+        $proprietario->cpf = $request->cpf;
+        $proprietario->endereco = $request->endereco;
+        $proprietario->telefone = $request->telefone;
+        $proprietario->email = $request->email;
+        $proprietario->sexo = $request->sexo;
+        $proprietario->save();
+
+        return redirect()->route('cadastrar_prop')->with('message', 'Reserva cadastrada com sucesso!');
+})->name('cadastrar_prop_ap');
+
+Route::post('/cadastrar_apto', function(Request $request){
+    $apartamento= new Apartamento;
+    $apartamento->dormitorios = $request->dormitorios;
+    $apartamento->residencial = $request->residencial;
+    $apartamento->ap = $request->ap;
+    $apartamento->bloco = $request->bloco;
+
+    $apartamento->save();
+
+    return redirect()->route('cadastrar_ap')->with('message', 'Reserva cadastrada com sucesso!');
+})->name('cadastrar_apto');
 
