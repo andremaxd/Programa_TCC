@@ -76,7 +76,8 @@ Route::get('/valor_por_proprietario', function () {
 Route::get('/inserir_cliente', 'ClienteController@store')->name('inserir_cliente');
 
 Route::post('/cadastrar_reserva', function(Request $request){
-        $cliente = new Cliente;
+    dd($request);
+    $cliente = new Cliente;
         $cliente->nome        = $request->nome;
         $cliente->cpf = $request->cpf;
         $cliente->endereco    = $request->endereco;
@@ -84,5 +85,18 @@ Route::post('/cadastrar_reserva', function(Request $request){
         $cliente->email       = $request->email;
         $cliente->sexo       = $request->sexo;
         $cliente->save();
+
+        $reserva->dormitorios = $request->dormitorios;
+        $reserva->residencial = $request->residencial;
+        $reserva->ap = $request->ap;
+        $reserva->entrada = $request->entrada;
+        $reserva->saida = $request->saida;
+        $reserva->diarias = $request->diarias;
+        $reserva->valor_diaria = $request->valor_diaria;
+        $reserva->valor_limpeza = $request->valor_limpeza;
+        $reserva->save();
+
+
         return redirect()->route('criar_reserva')->with('message', 'Reserva cadastrada com sucesso!');
 })->name('cadastrar_reserva');
+
