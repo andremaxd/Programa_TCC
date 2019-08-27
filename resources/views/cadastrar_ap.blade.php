@@ -47,12 +47,8 @@
 
         <p>
           <label for="cResid">Residencial:</label>
-          <input type="text" name="residencial" id="cResid" maxlength="40" size="20" placeholder="Apartamento" list="predio">
-          <datalist id="predio">
-            <option value="Alfredo Selent"></option>
-            <option value="Santo Antonio"></option>
-            <!-- COLOCAR TODOS OS APTOS-->
-          </datalist>
+          <input type="text" name="residencial" id="cResid" maxlength="40" size="20" placeholder="Apartamento">
+
         </p>
 
         <p><label for="cNAp">Apto:</label> <input type="number" name="ap" id="cNAp" min="0" max="9999"></p>

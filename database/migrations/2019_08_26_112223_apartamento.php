@@ -20,7 +20,6 @@ class Apartamento extends Migration
             $table->text('dormitorios');
             $table->string('residencial');
             $table->integer('ap');
-            $table->string('bloco');
             $table->integer('id_proprietario');
         });
     }
