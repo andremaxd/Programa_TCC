@@ -15,13 +15,12 @@ class Apartamento extends Migration
     {
         Schema::create('apartamento', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-
             $table->text('dormitorios');
             $table->string('residencial');
             $table->integer('ap');
             $table->string('bloco');
             $table->integer('id_proprietario');
+            $table->timestamps();
         });
     }
 

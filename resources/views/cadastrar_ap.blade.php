@@ -5,70 +5,72 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
-
     <title>Controle Aluguel</title>
-    ​
   </head>
+
   <body>
     <div class="interface">
+      <header class="cabecalho">
+        <a href={{route("menu")}}><img src="img/logo.png" width="150px" height="100px"> </a>
+        <h2> CADASTRAR NOVO APARTAMENTO: </h2>
+      </header>
 
-    <header class="cabecalho">
-      <a href={{route("menu")}}><img src="img/logo.png" width="150px" height="100px"> </a>
-      <h2> CADASTRAR NOVO APARTAMENTO: </h2>
-    </header>
-    <button class="icone"><a href={{route("menu_prop")}}> VOLTAR </a></button>
+      <button class="icone"><a href={{route("menu_prop")}}> VOLTAR </a></button>
 
-    <form method="post" id="fContato" action="{{ route('cadastrar_apto') }}">
-    {{csrf_field()}}
-      <fieldset id="">
-        <legend id="">Proprietário já cadastrado:</legend>
+      <form method="post" id="fContato" action="{{ route('cadastrar_apto') }}">
+        {{csrf_field()}}
 
-        <p><label for="cDorm">Proprietário:</label>
-        <select name="id_proprietario" id="cApto">
-          <option selected>Selecione</option>
-        @foreach ($proprietarios as $proprietario)
-          <option value={{$proprietario->id}}>{{$proprietario->nome}}</option>
+        <fieldset>
+          <legend>Proprietário já cadastrado:</legend>
 
-        @endforeach
+          <p> <!-- pq um <p> //REVISAO -->
+            <label for="cDorm">Proprietário:</label>
+            <select name="id_proprietario" id="cApto">
+              <option selected>Selecione</option>
+              @foreach ($proprietarios as $proprietario)
+                <option value={{$proprietario->id}}>{{$proprietario->nome}}</option>
+              @endforeach
+            </select>
+          </p>
+        </fieldset>
 
-        </select></p>
-      </fieldset>
+        <fieldset id="apartamento"><!-- nao pode ter id igual na msm pagina -- se precisar q seja igual usa class //REVISAO -->
+          <legend id="apartamento">Selecionar apartamento:</legend>
 
-      <fieldset id="apartamento">
-        <legend id="apartamento">Selecionar apartamento:</legend>
+          <p><!-- pq um <p> //REVISAO -->
+            <label for="cDorm">Dormitórios:</label>
+            <select name="dormitorios" id="cApto">
+              <option selected>Selecione</option>
+              <option value="02d">02 dormitórios</option>
+              <option value="03d">03 dormitórios</option>
+              <option value="04d">04 dormitórios</option>
+            </select>
+          </p>
 
-        <p><label for="cDorm">Dormitórios:</label>
-        <select name="dormitorios" id="cApto">
-          <option selected>Selecione</option>
-          <option value="02d">02 dormitórios</option>
-          <option value="03d">03 dormitórios</option>
-          <option value="04d">04 dormitórios</option>
-        </select></p>
+          <p>
+            <label for="cResid">Residencial:</label>
+            <input type="text" name="residencial" id="cResid" placeholder="Apartamento" list="predio"><!-- esta usando essa tag list? //REVISAO -->
+            <datalist id="predio">
+              <option value="Alfredo Selent"></option>
+              <option value="Santo Antonio"></option>
+            </datalist>
+          </p>
 
-        <p>
-          <label for="cResid">Residencial:</label>
-          <input type="text" name="residencial" id="cResid" maxlength="40" size="20" placeholder="Apartamento" list="predio">
-          <datalist id="predio">
-            <option value="Alfredo Selent"></option>
-            <option value="Santo Antonio"></option>
-            <!-- COLOCAR TODOS OS APTOS-->
-          </datalist>
-        </p>
+          <p>
+            <label for="cNAp">Apto:</label>
+            <input type="number" name="ap" id="cNAp" min="0" max="9999">
+          </p>
 
-        <p><label for="cNAp">Apto:</label> <input type="number" name="ap" id="cNAp" min="0" max="9999"></p>
-
-      </fieldset>
-      <div class="botao_reserva">
-        <button><a>CADASTRAR</a></button> 
-      </div>
-    </form>
-      
-    <footer class="rodape">
-      <p>Copyright &copy; 2019 - by André Max Dorneles</p>
-      <p>Trabalho de conclusão de curso.</p>
-    </footer>
-    ​
-  </div>
+        </fieldset>
+        <div class="botao_reserva">
+            <a><button>CADASTRAR</button></a> 
+        </div>
+      </form>
+        
+      <footer class="rodape">
+        <p>Copyright &copy; 2019 - by André Max Dorneles</p>
+        <p>Trabalho de conclusão de curso.</p>
+      </footer>
+    </div>
   </body>
-  ​
 </html>

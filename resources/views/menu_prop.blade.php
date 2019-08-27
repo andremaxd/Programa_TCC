@@ -5,18 +5,16 @@
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Controle Aluguel</title>
-    ​
   </head>
+
   <body>
     <div class="interface">    
-    <header class="cabecalho">
-      <a href={{route("menu")}}><img src="img/logo.png" width="150px" height="100px"> </a>
+      <header class="cabecalho">
+        <a href={{route("menu")}}><img src="img/logo.png" width="150px" height="100px"> </a>
+        <h2> MENU PROPRIETÁRIOS: </h2>
+      </header>
 
-    <h2> MENU PROPRIETÁRIOS: </h2>
-
-    </header>
-    <button class="icone"><a href={{route("menu")}}> VOLTAR </a></button>
-
+      <button class="icone"><a href={{route("menu")}}> VOLTAR </a></button>
 
       <div class ='menu'>
         <nav>
@@ -25,12 +23,11 @@
           <li><a href={{route("cadastrar_ap")}}>Cadastrar novo apartamento</a></li>
         </nav>
       </div>
-      
-      
-     <footer class="rodape">
-      <p>Copyright &copy; 2019 - by André Max Dorneles</p>
-      <p>Trabalho de conclusão de curso.</p>
-    </footer>
+        
+      <footer class="rodape">
+        <p>Copyright &copy; 2019 - by André Max Dorneles</p>
+        <p>Trabalho de conclusão de curso.</p>
+      </footer>
     ​</div>
   </body>
   ​

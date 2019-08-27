@@ -15,7 +15,6 @@ class Reserva extends Migration
     {
         Schema::create('reserva', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->text('cliente_id');
             $table->text('dormitorios');
             $table->text('residencial');
@@ -25,6 +24,7 @@ class Reserva extends Migration
             $table->string('diarias');
             $table->string('valor_diaria');
             $table->string('valor_limpeza');
+            $table->timestamps();
         });
     }
 

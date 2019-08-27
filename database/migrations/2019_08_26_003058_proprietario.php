@@ -15,19 +15,17 @@ class Proprietario extends Migration
     {
         Schema::create('proprietario', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-
             $table->text('nome');
             $table->string('cpf');
             $table->text('endereco');
             $table->string('telefone');
             $table->text('email');
             $table->string('sexo');
-
             $table->text('banco');
             $table->string('agencia');
             $table->text('conta');
             $table->string('tipo_conta');
+            $table->timestamps();
         });
     }
 
