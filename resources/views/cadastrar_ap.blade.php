@@ -46,14 +46,10 @@
               <option value="04d">04 dormitórios</option>
             </select>
           </p>
-
+          
           <p>
             <label for="cResid">Residencial:</label>
-            <input type="text" name="residencial" id="cResid" placeholder="Apartamento" list="predio"><!-- esta usando essa tag list? //REVISAO -->
-            <datalist id="predio">
-              <option value="Alfredo Selent"></option>
-              <option value="Santo Antonio"></option>
-            </datalist>
+            <input type="text" name="residencial" id="cResid" maxlength="40" size="20" placeholder="Apartamento">
           </p>
 
           <p>

@@ -45,6 +45,16 @@ Route::get('/dados_pessoais', function () {
     return view('dados_pessoais');
 })->name('dados_pessoais');
 
+Route::get('/cadastrar_cliente', function () {
+    return view('cadastrar_cliente');
+})->name('cadastrar_cliente');
+
+Route::get('/cadastrar_reserva', function () {
+    $apartamento = Apartamento::all();
+    $cliente = Cliente::all();
+    return view('cadastrar_reserva', compact('apartamento', 'cliente'));
+})->name('cadastrar_reserva');
+
 Route::get('/02_dormitorios', function () {
     $reservas = Reserva::all();
     return view('02_dorm', compact('reservas'));
@@ -84,27 +94,31 @@ Route::get('/valor_por_proprietario', function () {
 
 Route::get('/inserir_cliente', 'ClienteController@store')->name('inserir_cliente');
 
-Route::post('/cadastrar_reserva', function(Request $request){
+Route::post('/cadastrar_cliente', function(Request $request){
     $cliente = new Cliente;
-    $cliente->nome          = $request->nome;
-    $cliente->cpf           = $request->cpf;
-    $cliente->endereco      = $request->endereco;
-    $cliente->telefone      = $request->telefone;
-    $cliente->email         = $request->email;
-    $cliente->sexo          = $request->sexo;
+    $cliente->nome        = $request->nome;
+    $cliente->cpf = $request->cpf;
+    $cliente->endereco    = $request->endereco;
+    $cliente->telefone       = $request->telefone;
+    $cliente->email       = $request->email;
+    $cliente->sexo       = $request->sexo;
     $cliente->save();
 
-    $reserva = new Reserva;
-    $reserva->cliente_id    = $cliente->id;
-    $reserva->dormitorios   = $request->dormitorios;
-    $reserva->residencial   = $request->residencial;
-    $reserva->ap            = $request->ap;
-    $reserva->entrada       = $request->entrada;
-    $reserva->saida         = $request->saida;
-    $reserva->diarias       = $request->diarias;
-    $reserva->valor_diaria  = $request->valor_diaria;
-    $reserva->valor_limpeza = $request->valor_limpeza;
-    $reserva->save();
+    return redirect()->route('criar_reserva')->with('message', 'cleinte cadastrado com sucesso!');
+})->name('cadastrar_cliente');
+
+Route::post('/cadastrar_reserva', function(Request $request){
+     $reserva = new Reserva;
+     $reserva->cliente_id = $request->cliente_id;
+     $reserva->dormitorios = $request->dormitorios;
+     $reserva->residencial = $request->residencial;
+     $reserva->ap = $request->ap;
+     $reserva->entrada = $request->entrada;
+     $reserva->saida = $request->saida;
+     $reserva->diarias = $request->diarias;
+     $reserva->valor_diaria = $request->valor_diaria;
+     $reserva->valor_limpeza = $request->valor_limpeza;
+     $reserva->save();
 
     return redirect()->route('criar_reserva')->with('message', 'Reserva cadastrada com sucesso!');
 })->name('cadastrar_reserva');
@@ -128,13 +142,12 @@ Route::post('/cadastrar_prop', function(Request $request){
 })->name('cadastrar_prop_ap');
 
 Route::post('/cadastrar_apto', function(Request $request){
-    $apartamento = new Apartamento;
+    $apartamento= new Apartamento;
+    $apartamento->id_proprietario = $request->id_proprietario;
     $apartamento->dormitorios = $request->dormitorios;
     $apartamento->residencial = $request->residencial;
-    $apartamento->ap          = $request->ap;
-    $apartamento->bloco       = $request->bloco;
+    $apartamento->ap = $request->ap;
     $apartamento->save();
 
     return redirect()->route('cadastrar_ap')->with('message', 'Reserva cadastrada com sucesso!');
 })->name('cadastrar_apto');
-
