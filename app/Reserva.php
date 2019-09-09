@@ -13,5 +13,9 @@ class Reserva extends Model
     public function valor_total(){
         return $this->diarias * $this->valor_diaria + $this->valor_limpeza;
     }
+
+    public function Apartamento(){
+        return $this->belongsTo('App\Reserva', 'id', 'residencial');
+    }
 }
 

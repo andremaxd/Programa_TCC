@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/css.css">
 	</head>
 	<body>
-		<div> <!-- uma div vazia ai logo em seguida uma div? //REVISAO -->
+		
 			<div class="tela">
 				<img src="img/logo.png" width="180px" height="100px">
 
@@ -17,7 +17,6 @@
 				<input type="password" name="tSenha" class="cSenha" size="8" maxlength="8" placeholder="Senha">
 				<button type="button" value="enviar" ><a href={{route("menu")}}> ENTRAR</a></button>
 			</div>
-		</div>
 
 		<footer class="rodape">
 			<p>Copyright &copy; 2019 - by André Max Dorneles</p>

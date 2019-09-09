@@ -16,12 +16,11 @@
       <button class="icone"><a href={{route("menu_calendario")}}> VOLTAR </a></button>
 
       <section class="corpo">
-        <p>Res Alfredo Selent - Ap 101</p>
-        <p>Res Alfredo Selent - Ap 101</p>
-        <p>Res Alfredo Selent - Ap 101</p>
-        <p>Res Alfredo Selent - Ap 101</p>
-        <p>Res Alfredo Selent - Ap 101</p>
-        <p>Res Alfredo Selent - Ap 101</p>
+
+        @foreach ($reservas as $reserva)
+        <p>{{$reserva->Apartamento['residencial']}}</p>
+        @endforeach
+
       </section>
 
       <aside class="lateral"> 

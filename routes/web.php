@@ -108,11 +108,12 @@ Route::post('/cadastrar_cliente', function(Request $request){
 })->name('cadastrar_cliente');
 
 Route::post('/cadastrar_reserva', function(Request $request){
+    $apto = explode("-", $request->residencial);
      $reserva = new Reserva;
      $reserva->cliente_id = $request->cliente_id;
      $reserva->dormitorios = $request->dormitorios;
-     $reserva->residencial = $request->residencial;
-     $reserva->ap = $request->ap;
+     $reserva->residencial = $apto[0];
+     $reserva->ap = $apto[1];
      $reserva->entrada = $request->entrada;
      $reserva->saida = $request->saida;
      $reserva->diarias = $request->diarias;

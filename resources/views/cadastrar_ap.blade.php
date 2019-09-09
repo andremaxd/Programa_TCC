@@ -23,7 +23,7 @@
         <fieldset>
           <legend>Proprietário já cadastrado:</legend>
 
-          <p> <!-- pq um <p> //REVISAO -->
+          <p> 
             <label for="cDorm">Proprietário:</label>
             <select name="id_proprietario" id="cApto">
               <option selected>Selecione</option>
@@ -34,10 +34,10 @@
           </p>
         </fieldset>
 
-        <fieldset id="apartamento"><!-- nao pode ter id igual na msm pagina -- se precisar q seja igual usa class //REVISAO -->
+        <fieldset>
           <legend id="apartamento">Selecionar apartamento:</legend>
 
-          <p><!-- pq um <p> //REVISAO -->
+          <p>
             <label for="cDorm">Dormitórios:</label>
             <select name="dormitorios" id="cApto">
               <option selected>Selecione</option>

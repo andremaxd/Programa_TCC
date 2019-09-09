@@ -63,7 +63,7 @@
         <select name="residencial" id="cApto">
           <option selected>Selecione</option>
         @foreach ($apartamento as $apartamentos)
-          <option value={{$apartamentos->id}}>{{$apartamentos->residencial}}</option>
+          <option value="{{$apartamentos->id}}-{{$apartamentos->ap}}">{{$apartamentos->residencial}} - ap: {{$apartamentos->ap}}</option>
         @endforeach
 
         </select>
@@ -80,9 +80,6 @@
             <!-- COLOCAR TODOS OS APTOS-->
           </datalist>
         </p>
-
-        <p><label for="cNAp">Apto:</label> <input type="number" name="ap" id="cNAp" min="0" max="9999"></p>
-
       </fieldset>
 
       <fieldset>
