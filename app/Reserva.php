@@ -15,7 +15,7 @@ class Reserva extends Model
     }
 
     public function Apartamento(){
-        return $this->belongsTo('App\Reserva', 'id', 'residencial');
+        return $this->belongsTo('App\Apartamento', 'id', 'residencial');
     }
 }
 
