@@ -36,7 +36,7 @@
       <section class="corpo">
         <p><h2>Apartamentos:</h2></p>
         @foreach ($reservas as $reserva)
-        <p>{{$reserva->Apartamento['residencial']}}</p>
+        <p>{{$reserva->Apartamento['residencial']}} - {{$reserva->ap}}</p>
         @endforeach
 
       </section>
