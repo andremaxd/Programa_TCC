@@ -5,7 +5,21 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <title>Controle Aluguel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
+
+  <script>
+    $(document).ready(function(){
+      let total=0;
+      let reservas =  {!! json_encode($reservas->toArray()) !!}
+      reservas.forEach(function(reserva){
+        total += ((reserva.diarias * reserva.valor_diaria) * 0.10);
+      });
+      $('.comissao').html(total);
+      console.log(total);
+      
+    });
+  </script>
 
   <body>
     <div class="interface">
@@ -17,7 +31,8 @@
       <button class="icone"><a href={{route("comissao")}}> VOLTAR </a></button>
 
       <div class="corpo_geral">
-        <p>AQUI VAI UMA DESCRIÇÃO E O VALOR GERAL</p>
+        <h2>VALOR GERAL:</h2>
+        <p class="comissao"></p>
       </div>
         
       <footer class="rodape">

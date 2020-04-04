@@ -27,14 +27,14 @@
 
     <header class="cabecalho">
       <a href={{route("menu")}}><img src="img/logo.png" width="150px" height="100px"> </a>
-      <h2> CRIAR RESERVA: </h2>
+      <h2> CRADASTRAR NOVO CLIENTE: </h2>
     </header>
     <button class="icone"><a href={{route("criar_reserva")}}> VOLTAR </a></button>
 
     <form method="post" id="fContato" action="{{ route('cadastrar_cliente') }}" oninput="calc_total();">
             {{csrf_field()}}
       <fieldset id="usuario">
-        <legend>Dados locador:</legend>
+        <legend>Dados do cliente:</legend>
 
         <p> <label for="cNome">Nome: </label> <input type="text" name="nome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"></p>
         <p> <label for="cCPF">CPF:</label> <input type="CPF" name="cpf" id="cCPF" placeholder="000.000.000-00"></p>

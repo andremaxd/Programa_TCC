@@ -23,6 +23,9 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
+        "@fullcalendar/core": "^4.3.1",
+        "@fullcalendar/daygrid": "^4.3.0",
+        "fullcalendar": "^3.10.1",
         "jquery-mask-plugin": "^1.14.16"
     }
 }

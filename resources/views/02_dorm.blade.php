@@ -6,23 +6,14 @@
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <title>Controle Aluguel</title>
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+  
+    <link href='vendor/fullcalendar/packages/core/main.css' rel='stylesheet' />
+    <link href='vendor/fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+
   </head>
 
-  <script>
-    $(function() {
-      $( "#calendario" ).datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-      });
-    });
-</script>
+
 
   <body>
     <div class="interface">
@@ -41,9 +32,8 @@
 
       </section>
 
-      <aside class="lateral"> 
-        <p>AQUI VAI A TABELA COM O CALENDARIO</p>
-        <p>Data: <input type="text" id="calendario" /></p>
+      <aside class="lateral">
+        <div id='calendar'></div>
 
       </aside>
 
@@ -54,5 +44,68 @@
         <p>Trabalho de conclusão de curso.</p>
       </footer>
     </div>
+    
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js'></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
+<script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
+<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
+  
+    <script src='vendor/fullcalendar/packages/core/main.js'></script>
+    <script src='vendor/fullcalendar/packages/daygrid/main.js'></script>
+
+    <script>
+      $(document).ready(function() {
+      var calendar = $('#calendar').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
+        },
+        selectable: true,
+        selectHelper: true,
+        select: function(start, end, allDay) {
+          var title = prompt('Event Title:');
+          if (title) {
+            calendar.fullCalendar('renderEvent',
+              {
+                title: title,
+                start: start,
+                end: end,
+                allDay: allDay
+              },
+              true // make the event "stick"
+            );
+          }
+          calendar.fullCalendar('unselect');
+        },
+        editable: true,
+        events: [
+          {
+            id: 1,
+            title: 'ASD',
+            start: '2019-10-06',
+            end: '2019-10-07'
+          },
+          {
+            id: 2,
+            title: 'ASD',
+            start: '2019-10-16'
+          },
+          {
+            id: 3,
+            title: 'ASD',
+            start: '2019-10-26'
+          }
+        ]
+      });
+      
+    });
+
+    </script>
   </body>
 </html>

@@ -1,26 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/css.css">
-    <title>Controle Aluguel</title>
-  </head>
+@extends('template')
 
-  <body>
-    <div class="interface">
-      <header class="cabecalho">
-        <a href={{route("menu")}}> <img src="img/logo.png" width="150px" height="100px"> </a>
-        <h2> CLIENTES: </h2>
-      </header>
+@section('titulo', 'Dados Clientes')
 
-      <button class="icone"><a href={{route("menu")}}> VOLTAR </a></button>
-      <p>AQUI VAI OS CLIENTES</p>
+@section('retorno')
+  <button class="icone"><a href={{route("menu")}}> VOLTAR </a></button>
+@endsection
 
-      <footer class="rodape">
-        <p>Copyright &copy; 2019 - by André Max Dorneles</p>
-        <p>Trabalho de conclusão de curso.</p>
-      </footer>
-    </div>
-  </body>
-</html>
+@section('conteudo')
+  <div class="corpo">
+    <section >
+      <div class="clientes_cadastrados">
+        <p><b>Clientes:</b></p>
+        
+        @foreach($cliente as $clie)
+          <p class="button-efect" onclick="show({{$clie->id}})">{{$clie->nome}}</p></p>
+        @endforeach
+      </div>
+    </section>
+  </div >
+  <div class="lateral">
+    @foreach($cliente as $clie)
+      @if($cliente[0]->id == $clie->id)
+      <div class="clientes_cadastrados dados-prop {{$clie->id}}">
+      @else
+      <div class="clientes_cadastrados dados-prop {{$clie->id}} desactive">
+      @endif
+        <p><b>DADOS PESSOAIS</b><a href='{{route("deletar_cliente", $clie->id)}}'> Deletar</a></p>
+        <div>
+          <p>{{$clie->nome}}</p>
+          <p>{{$clie->cpf}}</p>
+          <p>{{$clie->telefone}}</p>
+          <p>{{$clie->email}}</p>
+      
+        </div>
+      </div>
+    @endforeach
+  </div>
+  <script>
+    function show(id){
+      $('.dados-prop').addClass('desactive')
+      $('.'+id).removeClass('desactive');
+    }
+  </script>
+@endsection

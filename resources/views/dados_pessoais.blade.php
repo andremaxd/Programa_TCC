@@ -1,33 +1,46 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/css.css">
-    <title>Controle Aluguel</title>
-  </head>
+@extends('template')
 
-  <body>
-    <div class="interface">
-      <header class="cabecalho">
-        <a href={{route("menu")}}> <img src="img/logo.png" width="150px" height="100px"> </a>
-        <h2> DADOS PESSOAIS: </h2>
-      </header>
+@section('titulo', 'Dados Proprietários')
 
-      <a href={{route("menu_prop")}}><button class="icone">VOLTAR</button></a>
+@section('retorno')
+  <button class="icone"><a href={{route("menu_prop")}}>VOLTAR</a></button>
+@endsection
 
-      <section class="corpo">
-        <p>PROPRIETÁRIOS</p>
-      </section>
-
-      <aside class="lateral"> 
-        <p>AQUI VAI OS DADOS</p>
-      </aside>
-        
-      <footer class="rodape">
-        <p>Copyright &copy; 2019 - by André Max Dorneles</p>
-        <p>Trabalho de conclusão de curso.</p>
-      </footer>
-    </div>
-  </body>
-</html>
+@section('conteudo')
+      <div class="corpo">
+        <section >
+          <div class="clientes_cadastrados">
+            <p><b>PROPRIETÁRIOS:</b></p>
+            
+            @foreach($proprietarios as $prop)
+              <p class="button-efect" onclick="show({{$prop->id}})">{{$prop->nome}}</p></p>
+            @endforeach
+          </div>
+        </section>
+      </div >
+      <div class="lateral">
+        @foreach($proprietarios as $prop)
+          @if($proprietarios[0]->id == $prop->id)
+          <div class="clientes_cadastrados dados-prop {{$prop->id}}">
+          @else
+          <div class="clientes_cadastrados dados-prop {{$prop->id}} desactive">
+          @endif
+            <p><b>DADOS PESSOAIS</b><a href='{{route("deletar_proprietario", $prop->id)}}'> Deletar</a></p>
+            <div>
+              <p>{{$prop->nome}}</p>
+              <p>{{$prop->cpf}}</p>
+              <p>{{$prop->banco}}</p>
+              <p>{{$prop->agencia}}</p>
+              <p>{{$prop->conta}}</p>
+              <p>{{$prop->tipo_conta}}</p>
+            </div>
+          </div>
+        @endforeach
+      </div>
+  <script>
+    function show(id){
+      $('.dados-prop').addClass('desactive')
+      $('.'+id).removeClass('desactive');
+    }
+  </script>
+@endsection

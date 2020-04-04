@@ -42,7 +42,8 @@ Route::get('/cadastrar_apartamento', function () {
 })->name('cadastrar_ap');
 
 Route::get('/dados_pessoais', function () {
-    return view('dados_pessoais');
+    $proprietarios = Proprietarios::all();
+    return view('dados_pessoais', compact('proprietarios'));
 })->name('dados_pessoais');
 
 Route::get('/cadastrar_cliente', function () {
@@ -61,11 +62,19 @@ Route::get('/02_dormitorios', function () {
 })->name('02_dorm');
 
 Route::get('/03_dormitorios', function () {
-    return view('03_dorm');
+    $reservas = Reserva::all();
+    return view('03_dorm', compact('reservas'));
 })->name('03_dorm');
 
+Route::get('/03_dormitorios/{id}', function ($id) {
+    $apartamento = Apartamento::find($id);
+    $reserva = $apartamento->reserva();
+    return view('03_dorm', compact('reserva'));
+})->name('03_dorm_ap');
+
 Route::get('/04_dormitorios', function () {
-    return view('04_dorm');
+    $reservas = Reserva::all();
+    return view('04_dorm', compact('reservas'));
 })->name('04_dorm');
 
 Route::get('/comissao', function () {
@@ -73,11 +82,13 @@ Route::get('/comissao', function () {
 })->name('comissao');
 
 Route::get('/indiviudal_por_apartamento', function () {
-    return view('indv_apto');
+    $apartamento = Apartamento::all();
+    return view('indv_apto', compact('apartamento'));
 })->name('indv_apto');
 
 Route::get('/comissao_geral', function () {
-    return view('com_geral');
+    $reservas = Reserva::all();
+    return view('com_geral', compact('reservas'));
 })->name('com_geral');
 
 Route::get('/valor_limpeza', function () {
@@ -85,11 +96,25 @@ Route::get('/valor_limpeza', function () {
 })->name('limpeza');
 
 Route::get('/clientes_cadastrados', function () {
-    return view('clientes_cadastrados');
+    $cliente = Cliente::all();
+    return view('clientes_cadastrados', compact('cliente'));
 })->name('clientes_cadastrados');
 
+Route::get('/deleletar_cliente/{id}', function ($id) {
+    $cliente= Cliente::find($id);
+    $cliente->delete();
+    return Redirect::route('clientes_cadastrados');
+})->name('deletar_cliente');
+
+Route::get('/deletar_proprietario/{id}', function ($id) {
+    $proprietarios = Proprietarios::find($id);
+    $proprietarios->delete();
+    return Redirect::route('dados_pessoais');
+})->name('deletar_proprietario');
+
 Route::get('/valor_por_proprietario', function () {
-    return view('propr_valores');
+    $apartamento = Apartamento::all();
+    return view('propr_valores', compact('apartamento'));
 })->name('propr_valores');
 
 Route::get('/inserir_cliente', 'ClienteController@store')->name('inserir_cliente');

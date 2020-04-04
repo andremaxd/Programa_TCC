@@ -17,12 +17,11 @@
 
       <div class ='menu'>
         <nav>
-          <li><a href={{route("menu_calendario")}}>Calendários:</a></li>
-          <li><a href={{route("criar_reserva")}}>Criar Reserva</a></li>
-          <li><a href={{route("menu_valores")}}>Valores</a></li>
-          <li><a href={{route("menu_prop")}}>Dados dos proprietários</a></li>
-          <li><a href={{route("clientes_cadastrados")}}>Clientes</a></li>
-          <li><a href={{route("menu")}}>Realizar contrato</a></li>
+          <a href={{route("menu_calendario")}}><li>Calendários:</li></a>
+          <a href={{route("criar_reserva")}}><li>Criar Reserva</li></a>
+          <a href={{route("menu_valores")}}><li>Valores</li></a>
+          <a href={{route("menu_prop")}}><li>Dados dos proprietários</li></a>
+          <a href={{route("clientes_cadastrados")}}><li>Clientes</li></a>
         </nav>
       </div>
 
